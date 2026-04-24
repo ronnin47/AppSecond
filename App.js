@@ -46,7 +46,7 @@ const HomeStack = () => {
        <Stack.Screen
         name="Ejercicios1_5"
         component={Ejercicios1_5}
-        options={{ title: 'Ejercicios1_5' }}
+        options={{ title: 'Ejercicios 1 al 5' }}
       />
 
       <Stack.Screen
