@@ -15,7 +15,7 @@ return(
     >
     <View style={styles.container}>
     
-       <Text style={styles.titulo}>PANTALLA HOME</Text>
+       {/*<Text style={styles.titulo}>PANTALLA HOME</Text>*/}
 
 
         <View style={{flex:1, gap:12, marginTop:20, alignItems:"center"}}>
