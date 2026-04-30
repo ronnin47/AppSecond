@@ -3,7 +3,7 @@ import {ImageBackground,Text, View, StyleSheet, TouchableOpacity} from "react-na
 const fondoHome="https://res.cloudinary.com/dzul1hatw/image/upload/v1775771291/af44fff87cc52df9db1bb26a243620ef_lpnyip.jpg";
 
 
-export const Home=({navigation})=>{
+export const Pantalla2=({navigation})=>{
 
 
 return(
@@ -20,31 +20,40 @@ return(
 
         <View style={{flex:1, gap:12, marginTop:20, alignItems:"center"}}>
 
-            <TouchableOpacity 
-            style={styles.botonPantalla}
-            onPress={()=>{navigation.navigate("Ejercicios1_5")}}>
-                <Text style={styles.textBoton}>Ejercicio 1-5</Text>
-            </TouchableOpacity>
 
             <TouchableOpacity 
             style={styles.botonPantalla}
-            onPress={()=>{navigation.navigate("Ejercicios6_10")}}>
+            onPress={()=>{navigation.navigate("Ejercicio6")}}>
            
-                <Text style={styles.textBoton}>Ejercicio 6-10</Text>
+                <Text style={styles.textBoton}>Ejercicio 6</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 
             style={styles.botonPantalla}
-            onPress={()=>{navigation.navigate("Ejercicios11_15")}}
+            onPress={()=>{navigation.navigate("Ejercicio7")}}
             >
-                <Text style={styles.textBoton}>Ejercicio 11-15</Text>
+                <Text style={styles.textBoton}>Ejercicio 7</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 
             style={styles.botonPantalla}
-            onPress={()=>{navigation.navigate("Ejercicios16_20")}}
+            onPress={()=>{navigation.navigate("Ejercicio8")}}
             >
-                <Text style={styles.textBoton}>Ejercicio 16-20</Text>
+                <Text style={styles.textBoton}>Ejercicio 8</Text>
+            </TouchableOpacity>
+
+                 <TouchableOpacity 
+            style={styles.botonPantalla}
+            onPress={()=>{navigation.navigate("Ejercicio9")}}
+            >
+                <Text style={styles.textBoton}>Ejercicio 9</Text>
+            </TouchableOpacity>
+
+            
+            <TouchableOpacity 
+            style={styles.botonPantalla}
+            onPress={()=>{navigation.navigate("Ejercicio10")}}>
+                <Text style={styles.textBoton}>Ejercicio 10</Text>
             </TouchableOpacity>
 
         </View>
@@ -97,21 +106,4 @@ const styles=StyleSheet.create({
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
