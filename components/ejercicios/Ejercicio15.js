@@ -14,7 +14,7 @@ export const Ejercicio15 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = "15) Una biblioteca realiza las compras mensuales de nuevos materiales de acuerdo a los siguientes porcentajes: libros de interés general 50%, libros de tecnología 30%, libros de ciencias sociales 20%. hacer un programa para ingresar el importe total (en pesos) que la biblioteca destinará a la compra mensual y luego calcular e informar el importe que invertirá en cada tipo de libro.";
+const enunciado = "15) Hacer una aplicación para ingresar por teclado 3 números y luego determinar e informar cuántos de esos números eran iguales a 10.";
 
 //FUNCION CALCULAR
 const calcular=()=>{

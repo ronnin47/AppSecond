@@ -12,7 +12,7 @@ export const Ejercicio8 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = "8) Una farmacia hace el 15% de descuento sobre los precios de la lista oficial. hacer un programa que permita ingresar por teclado el precio de lista de un determinado artículo y la cantidad de unidades compradas por un determinado cliente. luego calcular e informar por pantalla el total a pagar aplicando el descuento respectivo. por ejemplo: precio del artículo: $5.-. cantidad de unidades: 2. total a pagar: $ 8,50.";
+const enunciado = "8) Una empresa paga sueldos en base al valor de la hora y la cantidad de horas que trabajó cada empleado. Además, si el empleado trabajó más de 100 horas lo premian con $1000 y si trabajó más de 200 horas el premio es de $2500. Hallar el sueldo del empleado. Se ingresan por teclado el valor de la hora y la cantidad de horas trabajadas por el mismo.";
 
 //FUNCION CALCULAR
 const calcular=()=>{

@@ -14,7 +14,7 @@ export const Ejercicio14 = () => {
 
 
   
-const enunciado = "14) Hacer un programa para ingresar por teclado la cantidad de asientos disponibles en un avión y la cantidad de pasajes vendidos (es decir la cantidad de asientos ocupados) y luego calcular e informar el porcentaje de ocupación del mismo. por ejemplo: si el avión tiene 200 asientos disponibles y se vendieron 80 pasajes, el porcentaje de ocupación que se informará será de un 40%. nota: los valores 200 y 80 son solamente para ejemplificar, no debe hacer un programa para ingresar solamente esos valores, debe ser genérico.";
+const enunciado = "14) Hacer una aplicación para ingresar por teclado cinco números y luego determinar e informar el máximo de ellos.";
 
 //FUNCION CALCULAR
 const calcular = () => {

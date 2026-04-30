@@ -14,7 +14,7 @@ export const Ejercicio10 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = "10) Existe una unidad de medida llamada pulgada que se usa por ejemplo para medir el tamaño de la pantalla de un tv. una pulgada equivale aproximadamente a 2,5 cm. hacer un programa para ingresar por teclado una medida en cms y que calcule y emita por pantalla el equivalente en pulgadas. atención: el programa solamente debe solicitar un solo dato: la cantidad de cms a convertir.";
+const enunciado = "10) Un negocio desea una aplicación donde se debe ingresar el precio de un artículo y luego un valor 1 si el cliente paga en efectivo, un valor 2 si paga con tarjeta y un valor 3 si paga con tickets. El pago en efectivo tiene un descuento del 10%, el pago con tarjeta un descuento del 5% y el pago con ticket no tiene descuento. El programa emitirá luego el precio final a pagar por el cliente.";
 
 //FUNCION CALCULAR
 const calcular=()=>{

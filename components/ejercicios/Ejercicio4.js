@@ -7,18 +7,42 @@ import { useEffect, useState } from 'react';
 export const Ejercicio4 = () => {
 
   //HOOKS
-  const   [ base, setBase]= useState("");
-  const   [ altura, setAltura]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+ const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
 
-const enunciado = "4) Hacer un programa para ingresar por teclado la base y la altura de un triangulo y luego determinar e informar el area del mismo. (AREA= BASE * ALTURA / 2).";
+const enunciado = "4) Hacer una aplicación para ingresar por teclado dos números y luego informar por pantalla con un cartel aclaratorio si el primer número es múltiplo del segundo (que es lo mismo que decir que el segundo es divisor del primero).";
 
 //FUNCION CALCULAR
 const calcular=()=>{
 
-  const resultado= (Number(base) * Number(altura))/2;
-  setPantalla(resultado)
+  if(numero1==="" || numero2===""){
+    setPantalla("");
+    setNumero1("");
+    setNumero2("");
+    return;
+  }
+
+   if (Number(numero2) === 0) {
+    setPantalla("No se puede verificar con divisor cero.");
+    setNumero1("");
+    setNumero2("");
+    return;
+  }
+
+  if (Number(numero1) % Number(numero2) === 0){
+   
+    const resultado=`${numero1} es multiplo de ${numero2}`
+    setPantalla(resultado)
+  }else{
+    const resultado=`${numero1} no es multiplo de ${numero2}`
+    setPantalla(resultado)
+  }
+  
+    setNumero1("");
+    setNumero2("");
+  
 }
 
 
@@ -34,22 +58,22 @@ const calcular=()=>{
 
      <View style={{flexDirection:"row", gap:4, margin:10,}}>
 
-    <TextInput
-     style={styles.input}
-     value={base}
-     placeholder='Valor base'
-     onChangeText={setBase}
-     keyboardType="numeric"
-     
-    ></TextInput>
-
-      <TextInput
-     style={styles.input}
-     value={altura}
-     placeholder='Valor altura'
-     onChangeText={setAltura}
-     keyboardType="numeric"
-    ></TextInput>
+     <TextInput
+           style={styles.input}
+           value={numero1}
+           placeholder='numero 1'
+           onChangeText={setNumero1}
+           keyboardType="numeric"
+           
+          ></TextInput>
+      
+            <TextInput
+           style={styles.input}
+           value={numero2}
+           placeholder='numero2'
+           onChangeText={setNumero2}
+           keyboardType="numeric"
+          ></TextInput>
 
      </View>
 
@@ -75,14 +99,12 @@ const calcular=()=>{
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -117,7 +139,7 @@ container: {
     color:"greenyellow",
     borderWidth:1,
     borderColor:"aliceblue",
-    fontSize:18,
+    fontSize:14,
     fontFamily:"bold",
     borderRadius:4,
     padding:12,

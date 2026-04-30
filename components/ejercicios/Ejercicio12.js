@@ -14,7 +14,7 @@ export const Ejercicio12 = () => {
 
 
   
-const enunciado = "12) Hacer un programa que solicite por teclado la cantidad de piezas que fabrica una máquina por hora y la cantidad de piezas totales que hay que fabricar, luego determinar e informar el total de horas que la máquina demorará en completar la producción total.";
+const enunciado = "12) Hacer una aplicación para ingresar por teclado tres números y luego determinar e informar con una leyenda aclaratoria si los tres son todos distintos entre sí, caso contrario no emitir nada. Recordar que la ley de transitividad de la igualdad no se cumple para la desigualdad: si un número A es distinto a otro número B y si el número B es distinto a otro número C, entonces no se deduce que A sea distinto a C. Por ejemplo A=3, B=5 y C=3.";
 
 //FUNCION CALCULAR
 const calcular = () => {

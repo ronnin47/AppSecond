@@ -17,7 +17,7 @@ export const Ejercicio6 = () => {
 
 
   
-const enunciado = "6) Hacer un programa que permita ingresar 3 notas de un alumno/a y que muestro la nota promedio.";
+const enunciado = "6) Hacer una aplicación para ingresar por teclado un número y luego emitir por pantalla un cartel aclaratorio indicando si el mismo es positivo, negativo o cero.";
 
 //FUNCION CALCULAR
 const calcular = () => {
@@ -93,14 +93,12 @@ Promedio: ${resultado}`;
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-  backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

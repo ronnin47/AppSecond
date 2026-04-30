@@ -16,7 +16,7 @@ export const Ejercicio13 = () => {
 
 
   
-const enunciado = "13) Hacer un programa para ingresar por teclado el horario de ingreso y egreso de un empleado a una empresa y luego indicar por pantalla la cantidad de minutos que trabajó. por ejemplo, si la hora de ingreso es 7:55 y la hora de egreso es 18:00, se informará 605 minutos. nota: para ingresar las 7:55 el programa los solicitará como dos datos por separado.";
+const enunciado = "13) Hacer una aplicación para ingresar por teclado tres números y luego determinar e informar el máximo de ellos.";
 
 //FUNCION CALCULAR
 const calcular = () => {

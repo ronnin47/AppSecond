@@ -8,18 +8,36 @@ import { useEffect, useState } from 'react';
 export const Ejercicio1 = () => {
 
   //HOOKS
-  const   [ base, setBase]= useState("");
-  const   [ altura, setAltura]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+  const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
 
   
-const enunciado = "1) Hacer un programa que permite ingresar la altura y la base de un rectángulo y que luego calcule su superficie. Se debe mostrar el resultado por pantalla. ";
+const enunciado = "1) Hacer una aplicación para ingresar por teclado dos números; si son iguales emitir por pantalla un cartel aclaratorio que diga “Son iguales”, caso contrario no emitir nada.";
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const resultado = Number(base) * Number(altura);
-  setPantalla(resultado);
+
+
+if(numero1==="" || numero2===""){
+    
+    setPantalla("");
+      setNumero1("");
+      setNumero2("");
+    return;
+  }
+
+  if(Number(numero1)===Number(numero2)){
+    const resultado = "Los dos numeros son iguales.";
+    setPantalla(resultado);
+  }else{
+     setPantalla("");
+  }
+
+  setNumero1("");
+  setNumero2("");
+
 };
 
 
@@ -37,18 +55,18 @@ const calcular = () => {
 
     <TextInput
      style={styles.input}
-     value={base}
-     placeholder='Valor base'
-     onChangeText={setBase}
+     value={numero1}
+     placeholder='numero 1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={altura}
-     placeholder='Valor altura'
-     onChangeText={setAltura}
+     value={numero2}
+     placeholder='numero2'
+     onChangeText={setNumero2}
      keyboardType="numeric"
     ></TextInput>
 
@@ -76,14 +94,12 @@ const calcular = () => {
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -118,7 +134,7 @@ container: {
     color:"greenyellow",
     borderWidth:1,
     borderColor:"aliceblue",
-    fontSize:18,
+    fontSize:14,
     fontFamily:"bold",
     borderRadius:4,
     padding:12,

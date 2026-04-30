@@ -9,19 +9,30 @@ import { useEffect, useState } from 'react';
 export const Ejercicio5 = () => {
 
   //HOOKS
-  const   [ horasTrabajadas, setHorasTrabajadas]= useState("");
-  const   [ valorPorHora, setValorPorHora]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+  const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
   
-const enunciado = "5) Hacer un programa que permita ingresar por teclado la cantidad de horas trabajadas en el mes por un operario y luego el valor que se le paga por hora trabajada a ese operario. El programa debe calcular y emitir por pantalla el sueldo que le corresponda.";
+const enunciado = "5) Hacer una aplicación para ingresar por teclado dos números y luego mostrar por pantalla la diferencia entre el mayor y el menor de ellos. (Si ambos son iguales se emitirá un cero).";
 
 //FUNCION CALCULAR
-const calcular=()=>{
+const calcular = () => {
 
-  const resultado= (Number(horasTrabajadas) * Number(valorPorHora));
-  setPantalla( "Sueldo: $"+resultado)
-}
+  if (numero1 === "" || numero2 === "") {
+    setPantalla("");
+    setNumero1("");
+    setNumero2("");
+    return;
+  }
+
+  const resultado = Math.abs(Number(numero1) - Number(numero2));
+
+  setPantalla(`La diferencia entre el mayor y el menor es ${resultado}.`);
+
+  setNumero1("");
+  setNumero2("");
+};
 
 
 
@@ -36,22 +47,22 @@ const calcular=()=>{
 
      <View style={{flexDirection:"row", gap:4, margin:10,}}>
 
-    <TextInput
-     style={styles.input}
-     value={horasTrabajadas}
-     placeholder='Hrs trabajadas'
-     onChangeText={setHorasTrabajadas}
-     keyboardType="numeric"
-     
-    ></TextInput>
-
-      <TextInput
-     style={styles.input}
-     value={valorPorHora}
-     placeholder='Valor x hora'
-     onChangeText={setValorPorHora}
-     keyboardType="numeric"
-    ></TextInput>
+     <TextInput
+           style={styles.input}
+           value={numero1}
+           placeholder='numero 1'
+           onChangeText={setNumero1}
+           keyboardType="numeric"
+           
+          ></TextInput>
+      
+            <TextInput
+           style={styles.input}
+           value={numero2}
+           placeholder='numero2'
+           onChangeText={setNumero2}
+           keyboardType="numeric"
+          ></TextInput>
 
      </View>
 
@@ -77,14 +88,12 @@ const calcular=()=>{
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -119,7 +128,7 @@ container: {
     color:"greenyellow",
     borderWidth:1,
     borderColor:"aliceblue",
-    fontSize:18,
+    fontSize:14,
     fontFamily:"bold",
     borderRadius:4,
     padding:12,

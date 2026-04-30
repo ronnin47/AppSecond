@@ -14,7 +14,7 @@ export const Ejercicio11 = () => {
 
 
   
-const enunciado = "11) Hacer un programa para solicitar por teclado: la distancia en kilómetros entre dos ciudades y la velocidad promedio en km./h a la que un auto puede recorrer el tramo. el programa debe calcular el tiempo en horas que se tardará en recorrer esa distancia. por ejemplo: distancia 400, velocidad 100, resultado: 4 horas.";
+const enunciado = "11) Hacer una aplicación para ingresar por teclado tres números y luego determinar e informar con una leyenda aclaratoria si los tres son iguales entre sí, caso contrario no emitir nada. Recordar la ley de transitividad de la igualdad: si un número A es igual a otro número B y si el número B es igual a otro número C, entonces se deduce que A también es igual a C.";
 
 //FUNCION CALCULAR
 const calcular = () => {

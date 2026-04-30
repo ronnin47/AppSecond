@@ -14,7 +14,7 @@ export const Ejercicio9 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = "9) Una casa de venta de electrodomésticos paga a sus vendedores un sueldo fijo de $ 7000.-, más una comisión de 5% sobre el importe total facturado en el mes. hacer un programa que permita ingresar por teclado el importe total facturado por un determinado vendedor y que luego calcule el sueldo total a pagarle al mismo (sueldo fijo + comisión total) y emitirlo por pantalla. atención: el programa solamente debe solicitar un solo dato: el importe total facturado.";
+const enunciado = "9) Un negocio desea una aplicación donde se debe ingresar el precio neto de un artículo y luego un valor 1 si corresponde un IVA del 10,5% y un valor 2 si corresponde un IVA del 21%. El programa emitirá luego el precio con el IVA respectivo incluido.";
 
 //FUNCION CALCULAR
 const calcular=()=>{

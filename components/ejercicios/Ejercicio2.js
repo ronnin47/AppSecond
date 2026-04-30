@@ -8,17 +8,46 @@ import { useState } from 'react';
 export const Ejercicio2 = () => {
 
   //HOOKS
-  const   [ base, setBase]= useState("");
-  const   [ altura, setAltura]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+  const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
   
-const enunciado = "2) Hacer un programa que permita ingresar la altura y la base de un rectángulo, calcular su perímetro y mostrar el resultado por pantalla. ";
+const enunciado = "2) Hacer una aplicación para ingresar dos números distintos y emitir por pantalla el mayor de ambos.";
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const resultado = 2 * (Number(base) + Number(altura));
-  setPantalla(resultado);
+
+  if(numero1==="" || numero2===""){
+    
+    setPantalla("");
+      setNumero1("");
+      setNumero2("");
+    return;
+  }
+
+
+  if(Number(numero1)< Number(numero2)){
+
+ const resultado=`Numero 1= ${numero1}      Numero 2=${numero2}
+El numero mayor es numero 2 = ${numero2}`;
+     setPantalla(resultado);
+
+  }else if(Number(numero1)> Number(numero2)){
+
+ const resultado=`Numero 1= ${numero1}     Numero 2=${numero2}
+El numero mayor es numero 1 = ${numero1}`;
+     setPantalla(resultado);
+  }else{
+     const resultado=`Numero 1= ${numero1}      Numero 2=${numero2}
+No hay numero mayor, ambos numeros son iguales.`;
+     setPantalla(resultado);
+  }
+
+ setNumero1("");
+ setNumero2("");
+ 
+
 };
 
 
@@ -34,22 +63,23 @@ const calcular = () => {
 
      <View style={{flexDirection:"row", gap:4, margin:10,}}>
 
-    <TextInput
-     style={styles.input}
-     value={base}
-     placeholder='Valor base'
-     onChangeText={setBase}
-     keyboardType="numeric"
-     
-    ></TextInput>
-
-      <TextInput
-     style={styles.input}
-     value={altura}
-     placeholder='Valor altura'
-     onChangeText={setAltura}
-     keyboardType="numeric"
-    ></TextInput>
+     <TextInput
+        style={styles.input}
+        value={numero1}
+        placeholder='numero 1'
+        onChangeText={setNumero1}
+        keyboardType="numeric"
+        
+       ></TextInput>
+   
+         <TextInput
+        style={styles.input}
+        value={numero2}
+        placeholder='numero2'
+        onChangeText={setNumero2}
+        keyboardType="numeric"
+       ></TextInput>
+   
 
      </View>
 
@@ -75,14 +105,12 @@ const calcular = () => {
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada", 
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -112,12 +140,12 @@ container: {
   },
   pantalla:{
     width:260,
-    height:60,
+    height:80,
     backgroundColor:"#131212ab",
     color:"greenyellow",
     borderWidth:1,
     borderColor:"aliceblue",
-    fontSize:18,
+    fontSize:14,
     fontFamily:"bold",
     borderRadius:4,
     padding:12,

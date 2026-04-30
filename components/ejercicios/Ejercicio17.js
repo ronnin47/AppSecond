@@ -17,7 +17,7 @@ export const Ejercicio17 = () => {
 
 
   
-const enunciado = "17) Un comercio vende tres gustos de alfajores distintos: dulce de leche, chocolate y fruta. el dueño le pide a ud., futuro programador, un programa para que se pueda ingresar por teclado la cantidad de alfajores vendidos durante el día para cada una de las tres marcas en el orden anteriormente indicado (es decir se ingresan 3 datos distintos) y luego se calcule e informe el porcentaje de ventas para cada uno de ellos. por ejemplo: se ingresa 100, 25 y 75 como cantidades vendidas entonces el programa calculará e informará dulce de leche: 50%, chocolate 12,50% y fruta 37,50%.";
+const enunciado = "17) Hacer una aplicación para ingresar por teclado cinco números y luego emitir por pantalla cuántos de ellos son positivos, negativos y cero.";
 
 //FUNCION CALCULAR
 const calcular = () => {

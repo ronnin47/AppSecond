@@ -8,19 +8,34 @@ import { useState } from 'react';
 export const Ejercicio3 = () => {
 
   //HOOKS
-  const   [ ladoA, setLadoA]= useState("");
-  const   [ ladoB, setLadoB]= useState("");
-   const  [ ladoC, setLadoC]= useState("");
+  const   [ numero, setNumero]= useState("");
+
   const   [pantalla, setPantalla]=useState("");
 
 
   
-const enunciado = "3) Hacer un programa que permita ingresar la longitud de los tres lados de un triángulo, calcular su perímetro y mostrar el resultado por pantalla. ";
+const enunciado = "3) Hacer una aplicación para ingresar un número y luego informar por pantalla con un cartel aclaratorio si el mismo es par o impar.";
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const resultado = Number(ladoA) + Number(ladoB) + Number(ladoC);
-  setPantalla(resultado);
+  
+  if(numero===""){
+    
+    setPantalla("")
+    return;
+  }
+
+  if(Number(numero)%2==0){
+    
+    const resultado=`El numero ${numero} es par.`;
+    setPantalla(resultado)
+  }else{
+    const resultado=`El numero ${numero} es impar.`;
+    setPantalla(resultado)
+  }
+
+
+ setNumero("");
 };
 
 
@@ -38,27 +53,11 @@ const calcular = () => {
 
     <TextInput
      style={styles.input}
-     value={ladoA}
-     placeholder='Lado A'
-     onChangeText={setLadoA}
+     value={numero}
+     placeholder='ingrese numero'
+     onChangeText={setNumero}
      keyboardType="numeric"
      
-    ></TextInput>
-
-      <TextInput
-     style={styles.input}
-     value={ladoB}
-     placeholder='Lado B'
-     onChangeText={setLadoB}
-     keyboardType="numeric"
-    ></TextInput>
-
-    <TextInput
-     style={styles.input}
-     value={ladoC}
-     placeholder='Lado C'
-     onChangeText={setLadoC}
-     keyboardType="numeric"
     ></TextInput>
 
      </View>
@@ -85,14 +84,12 @@ const calcular = () => {
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -109,7 +106,7 @@ container: {
     fontSize: 14,
   },
   input:{
-    width:100,
+    width:140,
     height:40,
     borderWidth:1,
     borderColor:"#f3e9e9",
@@ -127,7 +124,7 @@ container: {
     color:"greenyellow",
     borderWidth:1,
     borderColor:"aliceblue",
-    fontSize:18,
+    fontSize:14,
     fontFamily:"bold",
     borderRadius:4,
     padding:12,

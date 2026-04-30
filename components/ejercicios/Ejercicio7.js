@@ -13,7 +13,7 @@ export const Ejercicio7 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = `7) Una concesionaria de autos paga a los vendedores un sueldo fijo de $ 18500.-, más $ 1500.- de premio por cada auto vendido. Hacer un programa que permita ingresar por teclado la cantidad de autos vendidos por un determinado vendedor y que luego calcule el sueldo total a pagarle al mismo (sueldo fijo + comisión total) y emitirlo por pantalla. Atención: el programa solamente debe solicitar un solo dato: la cantidad de autos vendidos.`;
+const enunciado = `7) Hacer una aplicación para ingresar las coordenadas X e Y de un punto y luego informar el cuadrante de ubicación del mismo. (No pueden ser valores iguales a 0).`;
 
 //FUNCION CALCULAR
 const calcular=()=>{

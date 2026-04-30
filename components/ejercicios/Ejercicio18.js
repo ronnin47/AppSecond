@@ -14,7 +14,7 @@ export const Ejercicio18 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = "18) Un negocio de venta de alfajores le pide a ud., futuro programador, que le desarrolle un programa teniendo en cuenta las siguientes condiciones: la caja de 12 alfajores se vende a $1000.- y cada alfajor suelto a $ 100. el programa debe solicitar al usuario cuantos alfajores compró un cliente y luego calcular el importe a pagar por el mismo. tener en cuenta que por cada 12 alfajores se debe calcular una caja, y el excedente se calcula como suelto. por ejemplo: si la cantidad ingresada son 15 alfajores, el programa calculará: 1 caja y 3 sueltos, es decir $1000.- + $100 x 3 = $ 1300. si cantidad ingresada son 28 alfajores, el programa calculará: 2 cajas y 4 sueltos, es decir $2000.- + $100 x 4 = $ 2400.-. si cantidad ingresada son 8 alfajores, el programa calculará: 0 cajas y 8 sueltos, es decir $100 x 8 = $ 800.-.";
+const enunciado = "18) Hacer una aplicación para ingresar por teclado cuatro números distintos y luego mostrar por pantalla el mayor y el segundo mayor de ellos.";
 
 //FUNCION CALCULAR
 const calcular=()=>{

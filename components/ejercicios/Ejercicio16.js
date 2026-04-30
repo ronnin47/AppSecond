@@ -14,7 +14,7 @@ export const Ejercicio16 = () => {
   const   [pantalla, setPantalla]=useState("");
 
   
-const enunciado = "16) Hacer un programa para que se ingrese por teclado el importe de una venta con el iva incluido (se lo llama importe bruto), luego calcular y mostrar por pantalla el importe total sin el iva del 21% incluido (se lo llama importe neto).";
+const enunciado = "16) Hacer una aplicación para poder ingresar por teclado cinco números y luego determinar e informar cuántos de esos cinco números son positivos.";
 
 //FUNCION CALCULAR
 const calcular=()=>{
