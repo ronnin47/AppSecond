@@ -10,28 +10,46 @@ export const Ejercicio15 = () => {
 
   //HOOKS
 
-  const   [ importeTotal, setImporteTotal]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+  const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
   
 const enunciado = "15) Hacer una aplicación para ingresar por teclado 3 números y luego determinar e informar cuántos de esos números eran iguales a 10.";
 
 //FUNCION CALCULAR
-const calcular=()=>{
+const calcular = () => {
 
-  const librosGral=Number(importeTotal) * 0.5;
-  const librosTec=Number(importeTotal)  *0.3;
-  const librosSociales=Number(importeTotal)  * 0.2;
+  if(numero1==="" || numero2==="" || numero3===""){
+    setPantalla("");
+    setNumero1("");
+    setNumero2("");
+    setNumero3("");
+    return;
+  }
 
- 
-  const info=`Importe total: $ ${importeTotal}
-libros de interés general 50%: $ ${librosGral} 
-libros de tecnología 30%: $ ${librosTec}
-libros de ciencias sociales 20%: $ ${librosSociales}
-`
+  let contador = 0;
+
+  if(Number(numero1) === 10){
+    contador++;
+  }
+
+  if(Number(numero2) === 10){
+    contador++;
+  }
+
+  if(Number(numero3) === 10){
+    contador++;
+  }
+
+  const info = `Números iguales a 10: ${contador}`;
 
   setPantalla(info);
-  setImporteTotal("");
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
 }
 
 
@@ -47,14 +65,32 @@ libros de ciencias sociales 20%: $ ${librosSociales}
 
      <View style={{flexDirection:"row", gap:4, margin:10,}}>
 
-    <TextInput
-     style={styles.input}
-     value={importeTotal}
-     placeholder='Importe total'
-     onChangeText={setImporteTotal}
-     keyboardType="numeric"
-     
-    ></TextInput>
+     <TextInput
+         style={styles.input}
+         value={numero1}
+         placeholder='Número 1'
+         onChangeText={setNumero1}
+         keyboardType="numeric"
+         
+        ></TextInput>
+    
+          <TextInput
+         style={styles.input}
+         value={numero2}
+         placeholder='Número 2'
+         onChangeText={setNumero2}
+         keyboardType="numeric"
+        ></TextInput>
+    
+    
+           <TextInput
+         style={styles.input}
+         value={numero3}
+         placeholder='Número 3'
+         onChangeText={setNumero3}
+         keyboardType="numeric"
+        ></TextInput>
+    
 
  
 
@@ -82,14 +118,12 @@ libros de ciencias sociales 20%: $ ${librosSociales}
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

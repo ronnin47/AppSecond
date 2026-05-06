@@ -43,9 +43,6 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
-
-
-
 // ---------- STACK HOME ----------
 const Pantalla1Stack = () => {
 
@@ -102,7 +99,6 @@ const Pantalla1Stack = () => {
     </Stack.Navigator>
   );
 };
-
 
 const Pantalla2Stack = () => {
   return (
@@ -247,6 +243,9 @@ const Pantalla4Stack = () => {
     </Stack.Navigator>
   );
 };
+
+
+
 
 
 // ---------- APP ----------

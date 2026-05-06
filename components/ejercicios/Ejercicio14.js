@@ -1,4 +1,6 @@
 
+
+
 import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import { useEffect, useState } from 'react';
 
@@ -8,30 +10,48 @@ import { useEffect, useState } from 'react';
 export const Ejercicio14 = () => {
 
   //HOOKS
-  const   [ asientosDisponibles, setAsientosDisponibles]= useState("");
-  const   [ pasajesVendidos, setPasajesVendidos]= useState("");
+    const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
+  const   [ numero4, setNumero4]= useState("");
+  const   [ numero5, setNumero5]= useState("");
   const   [ pantalla, setPantalla]=useState("");
 
 
-  
-const enunciado = "14) Hacer una aplicación para ingresar por teclado cinco números y luego determinar e informar el máximo de ellos.";
+  const enunciado = "14) Hacer una aplicación para ingresar por teclado cinco números y luego determinar e informar el máximo de ellos.";
+
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const porcentajeOcupacion = (pasajesVendidos*100)/Number(asientosDisponibles);
-  const info=`Total de asientos: ${asientosDisponibles}
-Pasajes vendidos: ${pasajesVendidos} 
-Porcentaje de ocupacion: ${porcentajeOcupacion}%
-  `;
+
+if(numero1==="" || numero2==="" || numero3==="" || numero4==="" || numero5===""){
+    setPantalla("");
+      setNumero1("");
+      setNumero2("");
+      setNumero3("");
+      setNumero4("");
+      setNumero5("");
+    return;
+  }
+  
+
+  const info = `Num 1: ${numero1} Num 2: ${numero2} Num 3: ${numero3} Num 4: ${numero4} Num 5: ${numero5}
+Máximo: ${Math.max(Number(numero1), Number(numero2), Number(numero3), Number(numero4), Number(numero5))}
+`;
+
   setPantalla(info);
-  setAsientosDisponibles("");
-  setPasajesVendidos("");
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
+  setNumero4("");
+  setNumero5(""); 
 };
 
 
 
   
-  return (
+   return (
     <View style={styles.container}>
     <Text style={styles.enunciado}>{enunciado}</Text>
 
@@ -39,24 +59,49 @@ Porcentaje de ocupacion: ${porcentajeOcupacion}%
      <Text style={styles.pantalla}>{pantalla}</Text>
 
 
-     <View style={{flexDirection:"row", gap:4, margin:10,}}>
+     <View style={{flexDirection:"row", gap:2, margin:10,  justifyContent:"space-between"}}>
 
     <TextInput
      style={styles.input}
-     value={asientosDisponibles}
-     placeholder='Disponibles'
-     onChangeText={setAsientosDisponibles}
+     value={numero1}
+     placeholder='1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={pasajesVendidos}
-     placeholder='Pas. vendidos'
-     onChangeText={setPasajesVendidos}
+     value={numero2}
+     placeholder='2'
+     onChangeText={setNumero2}
      keyboardType="numeric"
     ></TextInput>
+
+
+       <TextInput
+     style={styles.input}
+     value={numero3}
+     placeholder='3'
+     onChangeText={setNumero3}
+     keyboardType="numeric"
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero4}
+     placeholder='4'
+     onChangeText={setNumero4}
+     keyboardType="numeric"
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero5}
+     placeholder='5'
+     onChangeText={setNumero5}
+     keyboardType="numeric"
+    ></TextInput> 
 
      </View>
 
@@ -82,14 +127,12 @@ Porcentaje de ocupacion: ${porcentajeOcupacion}%
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -106,7 +149,8 @@ container: {
     fontSize: 14,
   },
   input:{
-    width:120,
+
+    flex:1,
     height:40,
     borderWidth:1,
     borderColor:"#f3e9e9",
@@ -144,3 +188,4 @@ container: {
   }
 
 })
+

@@ -47,7 +47,7 @@ return(
                 <Text style={styles.textBoton}>Ejercicio 4</Text>
             </TouchableOpacity>
 
-                 <TouchableOpacity 
+            <TouchableOpacity 
             style={styles.botonPantalla}
             onPress={()=>{navigation.navigate("Ejercicio5")}}
             >

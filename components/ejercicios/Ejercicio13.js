@@ -8,10 +8,9 @@ import { useEffect, useState } from 'react';
 export const Ejercicio13 = () => {
 
   //HOOKS
-  const   [ horaIngreso, setHoraIngreso]= useState("");
-  const   [ minutoIngreso, setMinutoIngreso]= useState("");
-  const   [ horaEgreso, setHoraEgreso]= useState("");
-  const   [ minutoEgreso, setMinutoEgreso]= useState("");
+    const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
   const   [ pantalla, setPantalla]=useState("");
 
 
@@ -20,28 +19,31 @@ const enunciado = "13) Hacer una aplicación para ingresar por teclado tres núm
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const ingreso = Number(horaIngreso) * 60 + Number(minutoIngreso);
-  const egreso = Number(horaEgreso) * 60 + Number(minutoEgreso);
 
-  const minutosTrabajados = egreso - ingreso;
+if(numero1==="" || numero2==="" || numero3===""){
+    setPantalla("");
+      setNumero1("");
+      setNumero2("");
+      setNumero3("");
+    return;
+  }
+  
 
-  const info = `Horario de ingreso: ${horaIngreso}:${minutoIngreso}
-Horario de egreso: ${horaEgreso}:${minutoEgreso}
-Total trabajado en minutos: ${minutosTrabajados}
+  const info = `Num 1: ${numero1} Num 2: ${numero2} Num 3: ${numero3}
+Máximo: ${Math.max(Number(numero1), Number(numero2), Number(numero3))}
 `;
 
   setPantalla(info);
 
-  setHoraIngreso("");
-  setMinutoIngreso("");
-  setHoraEgreso("");
-  setMinutoEgreso("");
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
 };
 
 
 
   
-  return (
+   return (
     <View style={styles.container}>
     <Text style={styles.enunciado}>{enunciado}</Text>
 
@@ -53,38 +55,27 @@ Total trabajado en minutos: ${minutosTrabajados}
 
     <TextInput
      style={styles.input}
-     value={horaIngreso}
-     placeholder='hr ingreso'
-     onChangeText={setHoraIngreso}
+     value={numero1}
+     placeholder='Número 1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={minutoIngreso}
-     placeholder='Min ingreso'
-     onChangeText={setMinutoIngreso}
+     value={numero2}
+     placeholder='Número 2'
+     onChangeText={setNumero2}
      keyboardType="numeric"
     ></TextInput>
 
-     </View>
-     <View style={{flexDirection:"row", gap:4, margin:10,}}>
 
-    <TextInput
+       <TextInput
      style={styles.input}
-     value={horaEgreso}
-     placeholder='hr Egreso'
-     onChangeText={setHoraEgreso}
-     keyboardType="numeric"
-     
-    ></TextInput>
-
-      <TextInput
-     style={styles.input}
-     value={minutoEgreso}
-     placeholder='Min Egreso'
-     onChangeText={setMinutoEgreso}
+     value={numero3}
+     placeholder='Número 3'
+     onChangeText={setNumero3}
      keyboardType="numeric"
     ></TextInput>
 
@@ -112,14 +103,12 @@ Total trabajado en minutos: ${minutosTrabajados}
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

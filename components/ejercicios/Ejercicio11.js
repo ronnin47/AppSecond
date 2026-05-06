@@ -8,8 +8,9 @@ import { useEffect, useState } from 'react';
 export const Ejercicio11 = () => {
 
   //HOOKS
-  const   [ distancia, setDistancia]= useState("");
-  const   [ velocidad, setVelocidad]= useState("");
+  const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
   const   [ pantalla, setPantalla]=useState("");
 
 
@@ -18,14 +19,27 @@ const enunciado = "11) Hacer una aplicación para ingresar por teclado tres núm
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const horas = Number(distancia) / Number(velocidad);
-  const info=`Distancia: ${distancia} Km
-Velocidad: ${velocidad} km/h
-Tiempo de viaje: ${horas} horas
-  `;
+
+  if(numero1==="" || numero2==="" || numero3===""){
+    setPantalla("");
+      setNumero1("");
+      setNumero2("");
+      setNumero3("");
+    return;
+  }
+
+  if(numero1===numero2 && numero2===numero3){
+
+  const info=`Num 1: ${numero1} Num 2: ${numero2} Num 3: ${numero3}
+Los tres numeros son iguales.`;
+
   setPantalla(info);
-  setDistancia("");
-  setVelocidad("");
+  }
+
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
 };
 
 
@@ -43,18 +57,27 @@ Tiempo de viaje: ${horas} horas
 
     <TextInput
      style={styles.input}
-     value={distancia}
-     placeholder='Distancia Km'
-     onChangeText={setDistancia}
+     value={numero1}
+     placeholder='Número 1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={velocidad}
-     placeholder='Vel. Km/h'
-     onChangeText={setVelocidad}
+     value={numero2}
+     placeholder='Número 2'
+     onChangeText={setNumero2}
+     keyboardType="numeric"
+    ></TextInput>
+
+
+       <TextInput
+     style={styles.input}
+     value={numero3}
+     placeholder='Número 3'
+     onChangeText={setNumero3}
      keyboardType="numeric"
     ></TextInput>
 
@@ -82,14 +105,12 @@ Tiempo de viaje: ${horas} horas
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

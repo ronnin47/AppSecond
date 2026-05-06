@@ -80,12 +80,12 @@ const calcular = () => {
     </TouchableOpacity>
 
     </View>
-  )}
+)}
 
 
 
 
- // STYLES 
+// STYLES 
 const styles = StyleSheet.create({
 container: {
   //justifyContent: 'center',

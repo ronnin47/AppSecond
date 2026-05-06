@@ -10,8 +10,9 @@ export const Ejercicio9 = () => {
 
   //HOOKS
 
-  const   [ importeTotal, setImporteTotal]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+  const   [ precioArt, setPrecioArt]= useState("");
+  const   [ tipoIva,setTipoIva]=useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
   
 const enunciado = "9) Un negocio desea una aplicación donde se debe ingresar el precio neto de un artículo y luego un valor 1 si corresponde un IVA del 10,5% y un valor 2 si corresponde un IVA del 21%. El programa emitirá luego el precio con el IVA respectivo incluido.";
@@ -19,17 +20,38 @@ const enunciado = "9) Un negocio desea una aplicación donde se debe ingresar el
 //FUNCION CALCULAR
 const calcular=()=>{
 
-  const sueldoBase=7000;
+  if (tipoIva === "" || precioArt === "") {
+    setPantalla("");
+    setTipoIva("");
+    setPrecioArt("");
+    return;
+  }
 
-  const resultado= (Number(importeTotal) * 1.05)+sueldoBase;
-  const info=`Sueldo base: $ ${sueldoBase}
-Importe Total: $ ${importeTotal} 
-Comision del 0.5%: $ ${Number(importeTotal) * 0.05}
-Sueldo Total: $ ${resultado}
+
+  if(tipoIva=="1"){
+
+      const resultado= (Number(precioArt) * 1.105);
+  const info=`Precio articulo: $ ${precioArt}
+IVA del 10,5%
+Precio con iva: $ ${resultado}
 `
 
   setPantalla(info);
-  setImporteTotal("");
+
+  }else if (tipoIva=="2"){
+
+     const resultado= (Number(precioArt) * 1.21);
+  const info=`Precio articulo: $ ${precioArt}
+IVA del 21%
+Precio con iva: $ ${resultado}
+`
+
+  setPantalla(info);
+  }
+
+
+  setTipoIva("");
+  setPrecioArt("");
 }
 
 
@@ -47,9 +69,18 @@ Sueldo Total: $ ${resultado}
 
     <TextInput
      style={styles.input}
-     value={importeTotal}
-     placeholder='Importe total'
-     onChangeText={setImporteTotal}
+     value={precioArt}
+     placeholder='Precio Art'
+     onChangeText={setPrecioArt}
+     keyboardType="numeric"
+     
+    ></TextInput>
+
+    <TextInput
+     style={styles.input}
+     value={tipoIva}
+     placeholder='Tipo Iva (1/2)'
+     onChangeText={setTipoIva}
      keyboardType="numeric"
      
     ></TextInput>
@@ -80,14 +111,12 @@ Sueldo Total: $ ${resultado}
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

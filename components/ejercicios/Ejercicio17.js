@@ -1,8 +1,7 @@
 
-import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 
-//hooks
-import { useState } from 'react';
+import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
+import { useEffect, useState } from 'react';
 
 
 
@@ -10,43 +9,91 @@ import { useState } from 'react';
 export const Ejercicio17 = () => {
 
   //HOOKS
-  const   [ gusto1, setGusto1]= useState("");
-  const   [ gusto2, setGusto2]= useState("");
-  const   [ gusto3, setGusto3]= useState("");
-  const   [pantalla, setPantalla]=useState("");
+    const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
+  const   [ numero4, setNumero4]= useState("");
+  const   [ numero5, setNumero5]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
 
-  
-const enunciado = "17) Hacer una aplicación para ingresar por teclado cinco números y luego emitir por pantalla cuántos de ellos son positivos, negativos y cero.";
+ const enunciado = "17) Hacer una aplicación para ingresar por teclado cinco números y luego emitir por pantalla cuántos de ellos son positivos, negativos y cero.";
+
 
 //FUNCION CALCULAR
 const calcular = () => {
 
+  if(numero1==="" || numero2==="" || numero3==="" || numero4==="" || numero5===""){
+    setPantalla("");
+    setNumero1("");
+    setNumero2("");
+    setNumero3("");
+    setNumero4("");
+    setNumero5("");
+    return;
+  }
 
-   const total=Number(gusto1)+Number(gusto2)+Number(gusto3);
+  let positivos = 0;
+  let negativos = 0;
+  let ceros = 0;
 
-    
-  const porcGusto1=(Number(gusto1)*100)/total;
-  const porcGusto2=(Number(gusto2)*100)/total;
-  const porcGusto3=(Number(gusto3)*100)/total;
+  if(Number(numero1) > 0){
+    positivos++;
+  } else if(Number(numero1) < 0){
+    negativos++;
+  } else {
+    ceros++;
+  }
+
+  if(Number(numero2) > 0){
+    positivos++;
+  } else if(Number(numero2) < 0){
+    negativos++;
+  } else {
+    ceros++;
+  }
+
+  if(Number(numero3) > 0){
+    positivos++;
+  } else if(Number(numero3) < 0){
+    negativos++;
+  } else {
+    ceros++;
+  }
+
+  if(Number(numero4) > 0){
+    positivos++;
+  } else if(Number(numero4) < 0){
+    negativos++;
+  } else {
+    ceros++;
+  }
+
+  if(Number(numero5) > 0){
+    positivos++;
+  } else if(Number(numero5) < 0){
+    negativos++;
+  } else {
+    ceros++;
+  }
+
+  const info = `Positivos: ${positivos}, Negativos: ${negativos}, Ceros: ${ceros}`;
 
  
-  const info=`Total de alfajores vendidos:  ${total} /u
-Dulce de leche: ${porcGusto1}% 
-Chocolate: ${porcGusto2}%
-Fruta: ${porcGusto3}%
-`
 
   setPantalla(info);
-  setGusto1("");
-  setGusto2("");
-  setGusto3("");
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
+  setNumero4("");
+  setNumero5("");
 };
 
 
 
   
-  return (
+   return (
     <View style={styles.container}>
     <Text style={styles.enunciado}>{enunciado}</Text>
 
@@ -54,33 +101,49 @@ Fruta: ${porcGusto3}%
      <Text style={styles.pantalla}>{pantalla}</Text>
 
 
-     <View style={{flexDirection:"row", gap:4, margin:10}}>
+     <View style={{flexDirection:"row", gap:2, margin:10,  justifyContent:"space-between"}}>
 
     <TextInput
      style={styles.input}
-     value={gusto1}
-     placeholder='Dulce de leche'
-     onChangeText={setGusto1}
+     value={numero1}
+     placeholder='1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={gusto2}
-     placeholder='Chocolate'
-     onChangeText={setGusto2}
+     value={numero2}
+     placeholder='2'
+     onChangeText={setNumero2}
      keyboardType="numeric"
     ></TextInput>
 
-    
-      <TextInput
+
+       <TextInput
      style={styles.input}
-     value={gusto3}
-     placeholder='Fruta'
-     onChangeText={setGusto3}
+     value={numero3}
+     placeholder='3'
+     onChangeText={setNumero3}
      keyboardType="numeric"
-    ></TextInput>
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero4}
+     placeholder='4'
+     onChangeText={setNumero4}
+     keyboardType="numeric"
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero5}
+     placeholder='5'
+     onChangeText={setNumero5}
+     keyboardType="numeric"
+    ></TextInput> 
 
      </View>
 
@@ -106,14 +169,12 @@ Fruta: ${porcGusto3}%
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-  backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -130,7 +191,8 @@ container: {
     fontSize: 14,
   },
   input:{
-    minWidth:90,
+
+    flex:1,
     height:40,
     borderWidth:1,
     borderColor:"#f3e9e9",
@@ -143,7 +205,7 @@ container: {
   },
   pantalla:{
     width:260,
-    height:100,
+    height:80,
     backgroundColor:"#131212ab",
     color:"greenyellow",
     borderWidth:1,

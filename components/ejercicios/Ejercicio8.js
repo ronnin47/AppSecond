@@ -7,8 +7,8 @@ import { useState } from 'react';
 export const Ejercicio8 = () => {
 
   //HOOKS
-  const   [ precioArticulo, setPrecioArticulo]= useState("");
-  const   [ cantidad, setCantidad]= useState("");
+  const   [ valorHora, setValorHora]= useState("");
+  const   [ cantidadHoras, setCantidadHoras]= useState("");
   const   [pantalla, setPantalla]=useState("");
 
   
@@ -17,18 +17,30 @@ const enunciado = "8) Una empresa paga sueldos en base al valor de la hora y la 
 //FUNCION CALCULAR
 const calcular=()=>{
 
+ if (cantidadHoras === "" || valorHora === "") {
+    setPantalla("");
+    setCantidadHoras("");
+    setValorHora("");
+    return;
+  }
 
- const pago= Number(cantidad) * Number(precioArticulo);
- const pagoDescuento= pago - (pago * 0.15);
+ let pago= Number(cantidadHoras) * Number(valorHora);
 
-  const info=`Cantidad articulos: ${cantidad} /u  
-Descuento de 15%:  $ ${pago*0.15}
-Total sin descuento:  $ ${pago}
-Total con descuento: $ ${pagoDescuento}`;
+ if(Number(cantidadHoras) >=100 && Number(cantidadHoras)<200 ){
+
+  pago=pago+1000;
+
+ }else if(Number(cantidadHoras) >=200){
+    pago=pago+2500;
+ }
+
+  const info=`Cantidad horas trabajadas: ${cantidadHoras}  
+Valor hora:  $ ${valorHora}
+Total:  $ ${pago}`;
 
   setPantalla( info);
-  setCantidad("");
-  setPrecioArticulo("");
+  setCantidadHoras("");
+  setValorHora("");
 }
 
 
@@ -46,18 +58,18 @@ Total con descuento: $ ${pagoDescuento}`;
 
     <TextInput
      style={styles.input}
-     value={cantidad}
-     placeholder='Cantidad Art.'
-     onChangeText={setCantidad}
+     value={cantidadHoras}
+     placeholder='Hrs trabajadas'
+     onChangeText={setCantidadHoras}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={precioArticulo}
-     placeholder='$ Art.'
-     onChangeText={setPrecioArticulo}
+     value={valorHora}
+     placeholder='$ valor hora'
+     onChangeText={setValorHora}
      keyboardType="numeric"
     ></TextInput>
 
@@ -85,14 +97,12 @@ Total con descuento: $ ${pagoDescuento}`;
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

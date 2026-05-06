@@ -1,6 +1,4 @@
 import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
-
-//useState
 import { useEffect, useState } from 'react';
 
 
@@ -9,31 +7,67 @@ import { useEffect, useState } from 'react';
 export const Ejercicio16 = () => {
 
   //HOOKS
+    const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
+  const   [ numero4, setNumero4]= useState("");
+  const   [ numero5, setNumero5]= useState("");
+  const   [ pantalla, setPantalla]=useState("");
 
-  const   [ importeBruto, setImporteBruto]= useState("");
-  const   [pantalla, setPantalla]=useState("");
 
-  
-const enunciado = "16) Hacer una aplicación para poder ingresar por teclado cinco números y luego determinar e informar cuántos de esos cinco números son positivos.";
+ const enunciado = "16) Hacer una aplicación para poder ingresar por teclado cinco números y luego determinar e informar cuántos de esos cinco números son positivos.";
+
 
 //FUNCION CALCULAR
-const calcular=()=>{
+const calcular = () => {
 
+  if(numero1==="" || numero2==="" || numero3==="" || numero4==="" || numero5===""){
+    setPantalla("");
+    setNumero1("");
+    setNumero2("");
+    setNumero3("");
+    setNumero4("");
+    setNumero5("");
+    return;
+  }
 
-const importeNeto=importeBruto-(importeBruto*0.21);
- 
-  const info=`Importe Bruto: $ ${importeBruto}
-Importe Neto (sin iva): $ ${importeNeto} 
-`
+  let contador = 0;
+
+  if(Number(numero1) > 0){
+    contador++;
+  }
+
+  if(Number(numero2) > 0){
+    contador++;
+  }
+
+  if(Number(numero3) > 0){
+    contador++;
+  }
+
+  if(Number(numero4) > 0){
+    contador++;
+  }
+
+  if(Number(numero5) > 0){
+    contador++;
+  }
+
+  const info = `Cantidad de números positivos: ${contador}`;
 
   setPantalla(info);
-  setImporteBruto("");
-}
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
+  setNumero4("");
+  setNumero5("");
+};
 
 
 
   
-  return (
+   return (
     <View style={styles.container}>
     <Text style={styles.enunciado}>{enunciado}</Text>
 
@@ -41,18 +75,49 @@ Importe Neto (sin iva): $ ${importeNeto}
      <Text style={styles.pantalla}>{pantalla}</Text>
 
 
-     <View style={{flexDirection:"row", gap:4, margin:10,}}>
+     <View style={{flexDirection:"row", gap:2, margin:10,  justifyContent:"space-between"}}>
 
     <TextInput
      style={styles.input}
-     value={importeBruto}
-     placeholder='Importe bruto'
-     onChangeText={setImporteBruto}
+     value={numero1}
+     placeholder='1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
- 
+      <TextInput
+     style={styles.input}
+     value={numero2}
+     placeholder='2'
+     onChangeText={setNumero2}
+     keyboardType="numeric"
+    ></TextInput>
+
+
+       <TextInput
+     style={styles.input}
+     value={numero3}
+     placeholder='3'
+     onChangeText={setNumero3}
+     keyboardType="numeric"
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero4}
+     placeholder='4'
+     onChangeText={setNumero4}
+     keyboardType="numeric"
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero5}
+     placeholder='5'
+     onChangeText={setNumero5}
+     keyboardType="numeric"
+    ></TextInput> 
 
      </View>
 
@@ -78,14 +143,12 @@ Importe Neto (sin iva): $ ${importeNeto}
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -102,7 +165,8 @@ container: {
     fontSize: 14,
   },
   input:{
-    width:120,
+
+    flex:1,
     height:40,
     borderWidth:1,
     borderColor:"#f3e9e9",
@@ -115,7 +179,7 @@ container: {
   },
   pantalla:{
     width:260,
-    height:100,
+    height:80,
     backgroundColor:"#131212ab",
     color:"greenyellow",
     borderWidth:1,
@@ -140,3 +204,4 @@ container: {
   }
 
 })
+

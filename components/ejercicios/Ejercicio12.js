@@ -3,13 +3,13 @@ import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native
 import { useEffect, useState } from 'react';
 
 
-
 //  COMPONENTE
 export const Ejercicio12 = () => {
 
   //HOOKS
-  const   [ cantPiezasPorHora, setCantPiezasPorHora]= useState("");
-  const   [ piezasTotales, setPiezasTotales]= useState("");
+   const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
   const   [ pantalla, setPantalla]=useState("");
 
 
@@ -18,20 +18,33 @@ const enunciado = "12) Hacer una aplicación para ingresar por teclado tres núm
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const horas = Number(piezasTotales) / Number(cantPiezasPorHora);
-  const info=`Piezas por Hr: ${cantPiezasPorHora} 
-Cantidad de piezas a fabricar: ${piezasTotales}
-Total de hrs de produccion: ${horas}
-  `;
+
+  if(numero1==="" || numero2==="" || numero3===""){
+    setPantalla("");
+      setNumero1("");
+      setNumero2("");
+      setNumero3("");
+    return;
+  }
+
+  if(numero1!==numero2 && numero2!==numero3 && numero1!==numero3){
+
+  const info=`Num 1: ${numero1} Num 2: ${numero2} Num 3: ${numero3}
+Los tres numeros son distintos.`;
+
   setPantalla(info);
-  setCantPiezasPorHora("");
-  setPiezasTotales("");
+  }
+
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
 };
 
 
 
   
-  return (
+   return (
     <View style={styles.container}>
     <Text style={styles.enunciado}>{enunciado}</Text>
 
@@ -43,18 +56,27 @@ Total de hrs de produccion: ${horas}
 
     <TextInput
      style={styles.input}
-     value={cantPiezasPorHora}
-     placeholder='Cant. Piezas Hr'
-     onChangeText={setCantPiezasPorHora}
+     value={numero1}
+     placeholder='Número 1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
       <TextInput
      style={styles.input}
-     value={piezasTotales}
-     placeholder='Total a fabricar'
-     onChangeText={setPiezasTotales}
+     value={numero2}
+     placeholder='Número 2'
+     onChangeText={setNumero2}
+     keyboardType="numeric"
+    ></TextInput>
+
+
+       <TextInput
+     style={styles.input}
+     value={numero3}
+     placeholder='Número 3'
+     onChangeText={setNumero3}
      keyboardType="numeric"
     ></TextInput>
 
@@ -82,14 +104,12 @@ Total de hrs de produccion: ${horas}
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

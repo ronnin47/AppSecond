@@ -9,22 +9,41 @@ import { useState } from 'react';
 export const Ejercicio7 = () => {
 
   //HOOKS
-  const   [ cantAutosVendidos, setCantAutosVendidos]= useState("");
+  const   [ coordX, setCoordX]= useState("");
+  const   [ coordY, setCoordY]= useState("");
   const   [pantalla, setPantalla]=useState("");
 
   
 const enunciado = `7) Hacer una aplicación para ingresar las coordenadas X e Y de un punto y luego informar el cuadrante de ubicación del mismo. (No pueden ser valores iguales a 0).`;
 
 //FUNCION CALCULAR
-const calcular=()=>{
-  const sueldoBase=18500;
-  const  bonoVentaAuto=1500;
+const calcular = () => {
 
-  const resultado= (Number(cantAutosVendidos) * bonoVentaAuto)+ sueldoBase;
-  const info=`Autos vendidos: ${cantAutosVendidos}   Comision: $ ${bonoVentaAuto * Number(cantAutosVendidos)} 
-Sueldo basico:  $ ${sueldoBase}
-Total Sueldo: $ ${resultado}`;
-  setPantalla( info);
+  if(coordX === "" || coordY === ""){
+    setPantalla("Debe ingresar ambas coordenadas");
+    return;
+  }
+
+  if(Number(coordX) === 0 || Number(coordY) === 0){
+    setPantalla("Las coordenadas no pueden ser cero");
+    return;
+  }
+
+  if(Number(coordX) > 0 && Number(coordY) > 0){
+    setPantalla(`Coordenada X: ${coordX}  Coordenada Y: ${coordY}\nPrimer Cuadrante`);
+  }
+  else if(Number(coordX) < 0 && Number(coordY) > 0){
+    setPantalla(`Coordenada X: ${coordX}  Coordenada Y: ${coordY}\nSegundo Cuadrante`);
+  }
+  else if(Number(coordX) < 0 && Number(coordY) < 0){
+    setPantalla(`Coordenada X: ${coordX}  Coordenada Y: ${coordY}\nTercer Cuadrante`);
+  }
+  else if(Number(coordX) > 0 && Number(coordY) < 0){
+    setPantalla(`Coordenada X: ${coordX}  Coordenada Y: ${coordY}\nCuarto Cuadrante`);
+  }
+
+  setCoordX("");
+  setCoordY("");
 }
 
 
@@ -42,11 +61,19 @@ Total Sueldo: $ ${resultado}`;
 
     <TextInput
      style={styles.input}
-     value={cantAutosVendidos}
-     placeholder='Autos ventas'
-     onChangeText={setCantAutosVendidos}
+     value={coordX}
+     placeholder='cordenada X'
+     onChangeText={setCoordX}
      keyboardType="numeric"
      
+    ></TextInput>
+
+    <TextInput
+     style={styles.input}
+     value={coordY}
+     placeholder='cordenada Y'
+     onChangeText={setCoordY}
+     keyboardType="numeric" 
     ></TextInput>
 
      </View>
@@ -73,14 +100,12 @@ Total Sueldo: $ ${resultado}`;
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',

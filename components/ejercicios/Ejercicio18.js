@@ -1,6 +1,6 @@
-import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 
-//useState
+
+import { Text, View, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
 import { useEffect, useState } from 'react';
 
 
@@ -9,36 +9,69 @@ import { useEffect, useState } from 'react';
 export const Ejercicio18 = () => {
 
   //HOOKS
+    const   [ numero1, setNumero1]= useState("");
+  const   [ numero2, setNumero2]= useState("");
+  const   [ numero3, setNumero3]= useState("");
+  const   [ numero4, setNumero4]= useState("");
 
-  const   [ cantidad, setCantidad]= useState("");
-  const   [pantalla, setPantalla]=useState("");
-
-  
-const enunciado = "18) Hacer una aplicación para ingresar por teclado cuatro números distintos y luego mostrar por pantalla el mayor y el segundo mayor de ellos.";
-
-//FUNCION CALCULAR
-const calcular=()=>{
-
-  const cajas = Math.floor(cantidad / 12);
-
-    const sueltos=cantidad -(12*cajas)
+  const   [ pantalla, setPantalla]=useState("");
 
 
  
-  const info=`Cajas (12 /u): ${cajas} 
-Alfajores sueltos:${sueltos}
-Importe total: $ ${cantidad *100}
+const enunciado = "18) Hacer una aplicación para ingresar por teclado cuatro números distintos y luego mostrar por pantalla el mayor y el segundo mayor de ellos.";
 
-`
+
+//FUNCION CALCULAR
+const calcular = () => {
+
+  if(numero1==="" || numero2==="" || numero3==="" || numero4===""){
+    setPantalla("");
+    setNumero1("");
+    setNumero2("");
+    setNumero3("");
+    setNumero4("");
+    return;
+  }
+
+  const n1 = Number(numero1);
+  const n2 = Number(numero2);
+  const n3 = Number(numero3);
+  const n4 = Number(numero4);
+
+  const mayor = Math.max(n1, n2, n3, n4);
+
+  let segundoMayor;
+
+  if(mayor === n1){
+    segundoMayor = Math.max(n2, n3, n4);
+  }
+
+  if(mayor === n2){
+    segundoMayor = Math.max(n1, n3, n4);
+  }
+
+  if(mayor === n3){
+    segundoMayor = Math.max(n1, n2, n4);
+  }
+
+  if(mayor === n4){
+    segundoMayor = Math.max(n1, n2, n3);
+  }
+
+  const info = `Mayor: ${mayor}\nSegundo mayor: ${segundoMayor}`;
 
   setPantalla(info);
-  setCantidad("");
-}
+
+  setNumero1("");
+  setNumero2("");
+  setNumero3("");
+  setNumero4("");
+};
 
 
 
   
-  return (
+   return (
     <View style={styles.container}>
     <Text style={styles.enunciado}>{enunciado}</Text>
 
@@ -46,17 +79,42 @@ Importe total: $ ${cantidad *100}
      <Text style={styles.pantalla}>{pantalla}</Text>
 
 
-     <View style={{flexDirection:"row", gap:4, margin:10,}}>
+     <View style={{flexDirection:"row", gap:2, margin:10,  justifyContent:"space-between"}}>
 
     <TextInput
      style={styles.input}
-     value={cantidad}
-     placeholder='Cantidad '
-     onChangeText={setCantidad}
+     value={numero1}
+     placeholder='1'
+     onChangeText={setNumero1}
      keyboardType="numeric"
      
     ></TextInput>
 
+      <TextInput
+     style={styles.input}
+     value={numero2}
+     placeholder='2'
+     onChangeText={setNumero2}
+     keyboardType="numeric"
+    ></TextInput>
+
+
+       <TextInput
+     style={styles.input}
+     value={numero3}
+     placeholder='3'
+     onChangeText={setNumero3}
+     keyboardType="numeric"
+    ></TextInput> 
+    
+       <TextInput
+     style={styles.input}
+     value={numero4}
+     placeholder='4'
+     onChangeText={setNumero4}
+     keyboardType="numeric"
+    ></TextInput> 
+    
  
 
      </View>
@@ -83,14 +141,12 @@ Importe total: $ ${cantidad *100}
  // STYLES 
 const styles = StyleSheet.create({
 container: {
-  justifyContent: 'center',
+  //justifyContent: 'center',
   alignItems:'center',
   padding:20,
-   backgroundColor:"#a8bdbab6",
-  borderWidth:1,
-  borderColor:"#e6dfdf",
-  borderRadius:10,
+  backgroundColor:"#080a0ada",
   gap:10,
+  height:"100%"
 },
   texto:{
     color: 'white',
@@ -107,7 +163,8 @@ container: {
     fontSize: 14,
   },
   input:{
-    width:120,
+
+    flex:1,
     height:40,
     borderWidth:1,
     borderColor:"#f3e9e9",

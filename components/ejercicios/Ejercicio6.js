@@ -10,9 +10,7 @@ import { useState } from 'react';
 export const Ejercicio6 = () => {
 
   //HOOKS
-  const   [ nota1, setNota1]= useState("");
-  const   [ nota2, setNota2]= useState("");
-  const   [ nota3, setNota3]= useState("");
+  const   [ numero, setNumero]= useState("");
   const   [pantalla, setPantalla]=useState("");
 
 
@@ -21,14 +19,42 @@ const enunciado = "6) Hacer una aplicación para ingresar por teclado un número
 
 //FUNCION CALCULAR
 const calcular = () => {
-  const resultado = (Number(nota1) + Number(nota2) + Number(nota3))/3;
-  const info=`Notas: ${nota1} ${nota2} ${nota3}
-Promedio: ${resultado}`;
+  //const resultado = (Number(nota1) + Number(nota2) + Number(nota3))/3;
+
+  if (numero === "" ) {
+    setPantalla("");
+    setNumero("");
+
+    return;
+  }
+
+  if (Number(numero)==0){
+  
+  const info=`Numero: ${numero} es Neutro`;
   setPantalla(info);
-  setNota1("");
-  setNota2("");
-  setNota3("");
-};
+  setNumero("");
+
+  }else if(Number(numero>0)){
+  
+  const info=`Numero: ${numero} es positivo`;
+  setPantalla(info);
+  setNumero("");
+
+  }else if(Number(numero<0)){
+  
+    const info=`Numero: ${numero} es negativo`;
+  setPantalla(info);
+  setNumero("");
+
+  }
+
+
+  
+
+  }
+
+
+
 
 
 
@@ -45,29 +71,14 @@ Promedio: ${resultado}`;
 
     <TextInput
      style={styles.input}
-     value={nota1}
-     placeholder='Nota 1'
-     onChangeText={setNota1}
+     value={numero}
+     placeholder='Ingrese numero'
+     onChangeText={setNumero}
      keyboardType="numeric"
      
     ></TextInput>
 
-      <TextInput
-     style={styles.input}
-     value={nota2}
-     placeholder='Nota 2'
-     onChangeText={setNota2}
-     keyboardType="numeric"
-    ></TextInput>
 
-    
-      <TextInput
-     style={styles.input}
-     value={nota3}
-     placeholder='Nota 3'
-     onChangeText={setNota3}
-     keyboardType="numeric"
-    ></TextInput>
 
      </View>
 
@@ -115,7 +126,7 @@ container: {
     fontSize: 14,
   },
   input:{
-    minWidth:90,
+    width:90,
     height:40,
     borderWidth:1,
     borderColor:"#f3e9e9",
